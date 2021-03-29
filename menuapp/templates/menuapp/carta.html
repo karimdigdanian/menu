@@ -1,0 +1,90 @@
+{% extends "menuapp/body.html" %}
+{% load static %}
+
+{% block contenido %}
+<h3 class="u-text u-text-1 titulo">Menu</h3>
+<div class="span"></div>
+<div class="u-valign-middle u-sheet-carta ">
+{% if listado %}
+        <div class="text-left">
+            <h2 class="text-left u-text-grey-70 u-text-4 ">Entradas</h2>
+            
+            <div class="u-expanded-width u-list u-repeater-menu u-list-menu">
+                {% for plato in entrada %}
+                <div class="u-container-style u-list-item u-repeater-item padding-left">
+                    {{ plato.nombre }}
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    $ {{ plato.precio }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="text-left">
+            <h2 class="text-left u-text-grey-70 u-text-4 ">Platos principales</h2>
+            
+            <div class="u-expanded-width u-list u-repeater-menu u-list-menu">
+                {% for plato in principal %}
+                <div class="u-container-style u-list-item u-repeater-item padding-left block">
+                    <p class="menu">{{ plato.nombre }}</p>
+                    <div class="padding-left">
+                        <p class="menu-detail">
+                            {% if plato.ingredientes.all %}
+                                {% for ingrediente in plato.ingredientes.all %}
+                                    {{ ingrediente.nombre }}
+                                    {% if not forloop.last %}
+                                        ,
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %} 
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    $ {{ plato.precio }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="text-left">
+            <h2 class="text-left u-text-grey-70 u-text-4 ">Postres</h2>
+            
+            <div class="u-expanded-width u-list u-repeater-menu u-list-menu">
+                {% for postre in postre %}
+                <div class="u-container-style u-list-item u-repeater-item padding-left">
+                    {{ postre.nombre }}
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    $ {{ postre.precio }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="text-left">
+            <h2 class="text-left u-text-grey-70 u-text-4 ">Bebidas</h2>
+            
+            <div class="u-expanded-width u-list u-repeater-menu u-list-menu">
+                {% for bebida in bebida %}
+                <div class="u-container-style u-list-item u-repeater-item padding-left">
+                    {{ bebida.nombre }}
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    $ {{ bebida.precio }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+
+
+{% else %}
+    <p>Lo sentimos, el menu no se encuentra disponible.</p>
+    
+{% endif %}
+</div>
+<div class="span"></div>
+{% endblock %}

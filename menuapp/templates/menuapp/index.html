@@ -1,0 +1,32 @@
+{% extends "menuapp/body.html" %}
+{% load static %}
+{% block contenido %}
+
+    <h3 class="u-text u-text-1 titulo">Restaurant</h3>  
+      <div class="u-expanded-width u-list u-repeater u-list-1">
+        <div class="u-container-style u-list-item u-repeater-item">
+          <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2">
+            <h2 class="u-text u-text-grey-70 u-text-4">Entradas</h2>
+            <p class="u-text u-text-grey-50 u-text-5">Conocé nuestras exquisitas opciones livianas individuales o para compartir. </p>
+            <img src="{% static 'menuapp/images/9e0024470b0f8316708609efdc4d2f57.jpeg' %}" alt="" class="u-expanded-width u-image u-image-default u-image-2">
+          </div>
+        </div>
+        <div class="u-container-style u-list-item u-repeater-item">
+          <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
+            <h2 class="u-text u-text-grey-70 u-text-2">Pizzas</h2>
+            <p class="u-text u-text-grey-50 u-text-3">Probá nuestras pizzas a la piedra amasadas y cocinadas en horno de barro.</p>
+            <img src="{% static 'menuapp/images/56df4d594b6cfe89c3cab7a6f6be1b07.jpeg' %}" alt="" class="u-expanded-width u-image u-image-default u-image-1">
+          </div>
+        </div>
+        <div class="u-container-style u-list-item u-repeater-item">
+          <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3">
+            <h2 class="u-text u-text-grey-70 u-text-6">Postres</h2>
+            <p class="u-text u-text-grey-50 u-text-7">No te pierdas de nuestro postres artesanales, especialidad de la casa.</p>
+            <img src="{% static 'menuapp/images/b81dc61f5cc588090e947e2da8347594.jpeg' %}" alt="" class="u-expanded-width u-image u-image-default u-image-3">
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'menuapp:carta' %}" class="u-border-active-black u-border-hover-black u-btn u-button-style u-btn-1">Ver la carta</a>
+    
+  
+{% endblock %}
