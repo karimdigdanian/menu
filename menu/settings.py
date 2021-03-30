@@ -1,4 +1,5 @@
 import os
+import environ
 """
 Django settings for menu project.
 
@@ -12,6 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'menuapp.apps.MenuappConfig',
+    'environ',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +83,10 @@ WSGI_APPLICATION = 'menu.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'menu',
-      'USER':'postgres',
-      'PASSWORD':'admin',
-      'HOST':'localhost',
+      'NAME': env('DATABASE_NAME'),
+      'USER': env('DATABASE_USER'),
+      'PASSWORD': env('DATABASE_PASS'),
+      'HOST': env('DATABASE_HOST'),
       'PORT':'',
    }
 }
@@ -128,3 +133,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False

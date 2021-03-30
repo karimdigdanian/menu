@@ -31742,6 +31742,7 @@ a.u-link.u-text-hover-grey-90:hover {
   grid-template-columns: repeat(2, 50%);
 }
 
+/* COLUMNAS CARTA */
 .u-sheet-carta {
   position: relative;
   width: 500;
@@ -31789,4 +31790,37 @@ p.menu-detail {
 
 div.block {
   display: block;
+}
+
+/* COLUMNAS CONTACTO */
+
+.u-sheet-contacto {
+  position: relative;
+  width: 1140px;
+  margin: 0 auto;
+}
+@media (min-width: 1200px) {
+  .u-sheet-contacto {
+    width: 1140px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .u-sheet-contacto {
+    width: 940px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .u-sheet-contacto {
+    width: 720px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .u-sheet-contacto {
+    width: 540px;
+  }
+}
+@media (max-width: 575px) {
+  .u-sheet-contacto {
+    width: 340px;
+  }
 }

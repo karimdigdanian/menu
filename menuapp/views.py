@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+
+import environ
 
 from .models import Plato
 
+env = environ.Env()
+environ.Env.read_env()
 
 def carta(request):
     listado = Plato.objects.all() # pylint: disable=no-member
@@ -23,4 +28,19 @@ def index(request):
     return render(request, 'menuapp/index.html', {})
 
 def contacto(request):
+    return render(request, 'menuapp/contacto.html', {})
+
+
+def enviar(request):
+    asunto = request.POST['asunto']
+    de = request.POST['de']
+    mensaje = request.POST['mensaje']
+    send_mail(
+        asunto,
+        mensaje,
+        de,
+        [env('EMAIL_DESTINO')],
+    )
+    
     return render(request, 'menuapp/index.html', {})
+    

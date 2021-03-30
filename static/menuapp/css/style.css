@@ -213,3 +213,10 @@
   padding-bottom: 20px;
 }
 
+.u-list-contacto {
+  grid-template-columns: 80% 20%;
+  grid-gap: 5px;
+  margin: 0px 0 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

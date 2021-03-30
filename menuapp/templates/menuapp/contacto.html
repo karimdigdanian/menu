@@ -1,0 +1,22 @@
+{% extends "menuapp/body.html" %}
+{% load static %}
+
+{% block contenido %}
+    <h3 class="u-text u-text-1 titulo">Contacto</h3>
+    <div class="span"></div>
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div>
+            <form action="{% url 'menuapp:enviar' %}" method="post">
+                {% csrf_token %}
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto"><br><br>
+                <label for="de">De:</label>
+                <input type="text" id="de" name="de"><br><br>
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea type="text" id="mensaje" name="mensaje"></textarea><br><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+    <div class="span"></div>
+{% endblock %}
