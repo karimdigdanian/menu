@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-import environ
+import environ # pylint: disable=import-error
 
 from .models import Plato
 
@@ -10,9 +10,6 @@ environ.Env.read_env()
 
 def carta(request):
     listado = Plato.objects.all() # pylint: disable=no-member
-    for plato in listado:
-        if (plato.ingredientes.exists()):
-            print(plato.ingredientes.all())
     entrada = listado.filter(tipo = 1)
     principal = listado.filter(tipo = 2)
     bebida = listado.filter(tipo = 3)
