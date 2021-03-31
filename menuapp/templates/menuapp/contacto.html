@@ -4,16 +4,31 @@
 {% block contenido %}
     <h3 class="u-text u-text-1 titulo">Contacto</h3>
     <div class="span"></div>
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div>
+    <div class="u-valign-middle u-sheet-carta ">
+        <div class="text-left">
             <form action="{% url 'menuapp:enviar' %}" method="post">
                 {% csrf_token %}
-                <label for="asunto">Asunto:</label>
-                <input type="text" id="asunto" name="asunto"><br><br>
-                <label for="de">De:</label>
-                <input type="text" id="de" name="de"><br><br>
-                <label for="mensaje">Mensaje:</label><br>
-                <textarea type="text" id="mensaje" name="mensaje"></textarea><br><br>
+                <div class="u-expanded-width u-list u-repeater-menu u-list-contacto">
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <label for="asunto">Asunto:</label>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <input type="text" id="asunto" name="asunto">
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <label for="de">De:</label>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <input type="text" id="de" name="de">
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <label for="mensaje">Mensaje:</label>
+                    </div>
+                    <div class="u-container-style u-list-item u-repeater-item padding-left">
+                        <textarea type="text" id="mensaje" name="mensaje"></textarea>
+                    </div>
+                    
+                </div>
                 <input type="submit" value="Enviar">
             </form>
         </div>

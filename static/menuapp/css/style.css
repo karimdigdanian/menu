@@ -214,7 +214,7 @@
 }
 
 .u-list-contacto {
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 20% 80%;
   grid-gap: 5px;
   margin: 0px 0 0;
   padding-top: 20px;
