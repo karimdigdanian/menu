@@ -17,7 +17,7 @@ class Plato(models.Model):
     publicacion = models.DateTimeField('Dia publicado')
     tipo = models.ForeignKey(TipoDePlato, on_delete=models.DO_NOTHING)
     precio = models.IntegerField(default=0)
-    ingredientes = models.ManyToManyField(Ingrediente)
+    ingredientes = models.ManyToManyField(Ingrediente, blank=True)
 
     def __str__(self):
         return self.nombre
