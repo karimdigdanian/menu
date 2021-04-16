@@ -42,6 +42,6 @@ def enviar(request):
     )
     print("envio")
     
-    return HttpResponseRedirect('/carta')
+    return HttpResponseRedirect('/carta/')
     #return render(request, 'menuapp/index.html', {})
     
