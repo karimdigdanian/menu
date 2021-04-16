@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 
 import environ # pylint: disable=import-error
 
@@ -29,6 +30,7 @@ def contacto(request):
 
 
 def enviar(request):
+    print("def enviar")
     asunto = request.POST['asunto']
     de = request.POST['de']
     mensaje = request.POST['mensaje']
@@ -38,6 +40,8 @@ def enviar(request):
         de,
         [env('EMAIL_DESTINO')],
     )
+    print("envio")
     
+    #return HttpResponseRedirect('/carta')
     return render(request, 'menuapp/index.html', {})
     
