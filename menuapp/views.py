@@ -33,8 +33,8 @@ def contacto(request):
     return render(request, 'menuapp/contacto.html', {})
 
 def enviar(request):
-    asunto = request.POST['asunto']
-    mensaje = request.POST['mensaje']
+    asunto = str(request.POST['asunto'])
+    mensaje = str(request.POST['mensaje'])
     de = str(request.POST['de'])
     para = str(env('EMAIL_DESTINO'))
     print('de:'+de)
