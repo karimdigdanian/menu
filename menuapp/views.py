@@ -34,13 +34,14 @@ def contacto(request):
 
 def enviar(request):
     asunto = request.POST['asunto']
-    de = request.POST['de']
+    #de = request.POST['de']
+    de = 'karim.lp@hotmail.com'
     mensaje = request.POST['mensaje']
     message = Mail(
-        from_email = de,
-        to_emails = env('EMAIL_DESTINO'),
-        subject = asunto,
-        html_content = mensaje
+        from_email='karim.lp@hotmail.com',
+        to_emails='kardigda@gmail.com',
+        subject='Sending with Twilio SendGrid is Fun',
+        html_content='<strong>and easy to do anywhere, even with Python</strong>'
         )
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
