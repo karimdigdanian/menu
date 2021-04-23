@@ -35,7 +35,7 @@ def contacto(request):
 def enviar(request):
     asunto = str(request.POST['asunto'])
     mensaje = str(request.POST['mensaje'])
-    de = str(request.POST['de'])
+    de = 'karim.lp@hotmail.com'
     para = str(env('EMAIL_DESTINO'))
     print('de:'+de)
     print('para:'+para)
